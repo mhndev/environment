@@ -10,9 +10,17 @@ class EnvironmentStaging extends Environment
 
     /**
      * EnvironmentStaging constructor.
-     * @param string | null $config_path
+     * @param $name
+     * @param bool $show_errors
+     * @param bool $show_error_trace
+     * @param null $config_path
      */
-    public function __construct($config_path = null)
+    public function __construct(
+        $name,
+        $show_errors = false,
+        $show_error_trace = false,
+        $config_path = null
+    )
     {
         parent::__construct(self::STAGING, false, false, $config_path);
     }

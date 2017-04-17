@@ -27,13 +27,16 @@ class EnvironmentFactory
 
     /**
      * @param string $env_name
+     * @param array $options
      * @return mixed
      */
-    public static function createEnvironment($env_name)
+    public static function createEnvironment($env_name, array $options = [])
     {
         foreach (self::$namespaces as $namespace){
             if( class_exists($className = $namespace.'Environment'.ucfirst($env_name) ) ) {
-                return new $className();
+                /** @var Environment $className */
+
+                return $className::fromArray(array_merge(['name' => $env_name], $options));
             }
 
         }

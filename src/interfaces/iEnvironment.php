@@ -13,4 +13,20 @@ interface iEnvironment
      */
     function getName();
 
+    /**
+     * @return bool
+     */
+    public function isShowErrors();
+
+    /**
+     * @return bool
+     */
+    public function isShowErrorTrace();
+
+    /**
+     * @return string
+     */
+    public function getConfigPath();
+
+
 }
